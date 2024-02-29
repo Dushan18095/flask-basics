@@ -1,6 +1,7 @@
 import os
 
-from flask import Flask
+from flask import Flask, request
+import src.functions as f
 
 
 def create_app(test_config=None):
@@ -28,4 +29,13 @@ def create_app(test_config=None):
     def hello():
         return 'Hello, World!'
 
+    @app.route('/factorize')
+    def factorize():
+        number = request.args.get('number')
+        return f.factorize(int(number))
+
+    @app.route('/number-of-digits')
+    def number_of_digits():
+        number = request.args.get('number')
+        return str(f.number_of_digits(int(number)))
     return app

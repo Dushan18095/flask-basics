@@ -1,18 +1,17 @@
-def number_of_digits(n):
-    m = 0
-    while n > 0:
-        n = n // 10
-        m += 1
-    return m
-
 def factorize(n):
     factors = []
-    f = 2
-    while n >= f:
-        if n % f == 0:
-            factors.append(f)
-            n = n / f
+    i = 2
+    while n >= i:
+        if n % i == 0:
+            factors.append(i)
+            n = n / i
         else:
-            f = f + 1
+            i = i + 1
     return factors
 
+def number_of_digits(n):
+    count = 0
+    while n > 0:
+        n = n // 10
+        count = count + 1
+    return count
